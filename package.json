@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bootstrap": "npx lerna bootstrap",
+    "build:api": "npx lerna run --scope @edgefront/api build --stream",
+    "run:frontpage-api": "npx lerna run --scope tykoa n --stream",
+    "start": "npm run bootstrap && npm run build:api && npm run run:frontpage-api"
   },
   "author": "",
   "license": "ISC",
