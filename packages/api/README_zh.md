@@ -21,10 +21,11 @@
 
 # 系统要求  
 > 1. Node.js v10.x 版本或更新  
-> 1. PostgreSQL ( 如前所述，基于knex，稍作修改即可支持其它数据库。但GraphQL / PostGraphile依赖PostgreSQL，如使用其它数据库，GraphQL相关初始化代码也请一并移除 )  
+> 1. MySQL / Maria DB
+> 1. ~~PostgreSQL ( 如前所述，基于knex，稍作修改即可支持其它数据库。但GraphQL / PostGraphile依赖PostgreSQL，如使用其它数据库，GraphQL相关初始化代码也请一并移除 )~~  
 
 # 使用方法  
-postgres数据库中需要有一张名为`user_tb`的表，结构和数据不限  
+~~postgres~~mysql数据库中需要有一张名为`user_tb`的表，结构和数据不限  
 conf/ 中配置好数据库  
 jsonwebtoken默认关闭，如果填入`SECRET`配置项，才会开启header验证。请完善登录逻辑后再开启。  
 ```
@@ -56,8 +57,9 @@ graphql挂载在 `http://localhost:3000/gql/graphql`
 > 1. TypeScript + its decorators + reflect-metadata  
 > 1. Koa 2
 > 1. Knex.js , a SQL query builder
-> 1. pg , Postgresql Nodejs driver
-> 1. PostGraphile , make GraphQL and Postgres things easy
+> 1. mysql, mysql nodejs driver
+> 1. ~~pg , Postgresql Nodejs driver~~
+> 1. ~~PostGraphile , make GraphQL and Postgres things easy~~
 > 1. dotenv , configurations in .env files
 
 

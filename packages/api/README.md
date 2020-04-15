@@ -9,7 +9,8 @@ A quickstart template for TypeScript + Koa 2
 
 # System Requirements  
 > 1. Node.js latest v10.x or newer  
-> 1. PostgreSQL ( if you use MySQL, need to configure right driver for knex, and disable PostGraphile manually )  
+> 1. MySQL / Maria DB
+> 1. ~~PostgreSQL ( if you use MySQL, need to configure right driver for knex, and disable PostGraphile manually )~~  
 
 # Usage  
 
@@ -46,8 +47,9 @@ npm start (run compiled codes for production)
 > 1. TypeScript + its decorators + reflect-metadata  
 > 1. Koa 2
 > 1. Knex.js , a SQL query builder
-> 1. pg , Postgresql Nodejs driver
-> 1. PostGraphile , make GraphQL and Postgres things easy
+> 1. mysql, mysql nodejs driver
+> 1. ~~pg , Postgresql Nodejs driver~~
+> 1. ~~PostGraphile , make GraphQL and Postgres things easy~~
 > 1. dotenv , configurations in .env files
 
 
