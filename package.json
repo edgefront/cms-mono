@@ -7,6 +7,8 @@
     "bootstrap": "npx lerna bootstrap",
     "build:api": "npx lerna run --scope @edgefront/api build --stream",
     "run:frontpage-api": "npx lerna run --scope tykoa n --stream",
+    "start:frontpage-api": "npm run bootstrap && npm run build:api && npm run build:frontpage-api && npx lerna run --scope tykoa start --stream",
+    "build:frontpage-api": "npx lerna run --scope tykoa build --stream",
     "start": "npm run bootstrap && npm run build:api && npm run run:frontpage-api",
     "postinstall": "npm run bootstrap"
   },

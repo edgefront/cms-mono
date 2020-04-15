@@ -32,11 +32,12 @@ function getFiles(dir: string): Array<string> {
 }
 
 function initRoute(app: Koa): void {
-  let outerRoutePath = path.join(process.cwd(), 'src/routes')
+  let outerRoutePath = path.join(process.cwd(), 'build/routes')
   if (!fs.existsSync(outerRoutePath)) {
-    outerRoutePath = path.join(process.cwd(), 'build/routes')
+    outerRoutePath = path.join(process.cwd(), 'src/routes')
   }
   const routeFiles = getFiles(outerRoutePath)
+  console.log(outerRoutePath, routeFiles)
   // console.log(routeFiles)
   const routeArr: Array<string> = []
   routeFiles.forEach(async (v) => {

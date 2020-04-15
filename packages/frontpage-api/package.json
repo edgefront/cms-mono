@@ -2,7 +2,7 @@
   "name": "tykoa",
   "version": "0.0.6",
   "description": "tykoa-backend-demo",
-  "main": "./build/src/app.js",
+  "main": "./build/app.js",
   "scripts": {
     "n": "nodemon ./src/app.ts",
     "debug": "nodemon --inspect ./src/app.ts",
@@ -33,7 +33,7 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "@edgefront/api": "0.0.11",
+    "@edgefront/api": "*",
     "@koa/router": "^8.0.2",
     "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
