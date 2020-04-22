@@ -1,10 +1,10 @@
-import { SHA256 }  from 'crypto-js';
 import { Next, default as Koa } from 'koa'
 import {
   util,
   decorators,
 } from '@edgefront/api'
 import { AuthService } from '../services'
+import { db } from '@edgefront/api/src/db';
 
 
 const {
@@ -15,17 +15,18 @@ export default class Anything {
   @Autowired()
   public auth: AuthService
   @Post()
-  login(ctx: Koa.Context, next: Next): Promise<void> {
-    const { username, password } = ctx.request.body
-    if (username === '1' && password === '1') {
+  async login(ctx: Koa.Context, next: Next): Promise<void> {
+    const { name, password } = ctx.request.body
+    const result = await this.auth.login({name, password: this.auth.pwd(password)})
+    if (result) {
       const token = ctx.jwt.sign(
-        { username },
-        util.getConfig('SECRET'),
+        { name },
+        util.getConfig('SECRET') || 'edgefront',
         {
           expiresIn: '24h', // expires in 24 hours
         },
       )
-      ctx.body = { token }
+      ctx.body = { token, result }
       return next()
     }
     ctx.response.status = 401
@@ -37,7 +38,7 @@ export default class Anything {
 
     // Encrypt
     const { password, name, ...rest} = ctx.request.body; // ctx.query
-    var encryptedPwd = SHA256(password, 'edgefront').toString();
+    var encryptedPwd = this.auth.pwd(password)
     const result = await this.auth.register({
       password: encryptedPwd,
       name,
