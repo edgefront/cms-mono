@@ -35,6 +35,7 @@
   "dependencies": {
     "@edgefront/api": "*",
     "@koa/router": "^8.0.2",
+    "crypto-js": "^4.0.0",
     "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.3",
@@ -43,7 +44,5 @@
     "lodash": "^4.17.15",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13"
-  },
-  "peerDependencies": {
   }
 }
