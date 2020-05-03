@@ -4,7 +4,7 @@
   "description": "tykoa-backend-demo",
   "main": "./build/app.js",
   "scripts": {
-    "n": "nodemon ./src/app.ts",
+    "n": "npx rimraf ./build && nodemon ./src/app.ts",
     "debug": "nodemon --inspect ./src/app.ts",
     "dev": "concurrently nodemon \"open-cli http://localhost:3000/child/test/1\" ",
     "build": "tsc",
@@ -43,6 +43,7 @@
     "koa-bodyparser": "^4.2.1",
     "lodash": "^4.17.15",
     "mysql": "^2.18.1",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2"
   }
 }
