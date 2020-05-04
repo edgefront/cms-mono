@@ -5,10 +5,10 @@ a mono repo for frontpage / cms.
 see [teambition](https://teambition.com/project/5e8d517da442870021d042a6)  
 
 # intro of folders  
-|  folder name    | npm name      | description      |
-|  ----           | ----          | ----                 |
-| api             | @edgefront/api| core koa framework   |
-| cms-api         | N/A           | frontpage backend API|
+|  folder name    | npm name                   | description                  |
+|  ----           | ----                       | ----                         |
+| api             | @edgefront/api             | core koa framework           |
+| cms-api         | cms-api (only private use) | frontpage and CMS backend API|
 # install  
 ```
 npm i --registry=https://registry.npm.taobao.org  
