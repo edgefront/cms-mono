@@ -1,7 +1,7 @@
 {
-  "name": "tykoa",
+  "name": "cms-api",
   "version": "0.0.6",
-  "description": "tykoa-backend-demo",
+  "description": "cms-api",
   "main": "./build/app.js",
   "scripts": {
     "n": "npx rimraf ./build && nodemon ./src/app.ts",

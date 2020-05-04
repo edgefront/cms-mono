@@ -1,7 +1,7 @@
 {
   "name": "@edgefront/api",
   "version": "0.0.12",
-  "description": "tykoa-backend-demo",
+  "description": "@edgefront/api core koa and db logic",
   "main": "build/app.js",
   "typings": "src/app.ts",
   "scripts": {

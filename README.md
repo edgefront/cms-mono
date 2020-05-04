@@ -8,7 +8,7 @@ see [teambition](https://teambition.com/project/5e8d517da442870021d042a6)
 |  folder name    | npm name      | description      |
 |  ----           | ----          | ----                 |
 | api             | @edgefront/api| core koa framework   |
-| frontpage-api   | N/A           | frontpage backend API|
+| cms-api         | N/A           | frontpage backend API|
 # install  
 ```
 npm i --registry=https://registry.npm.taobao.org  
