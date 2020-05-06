@@ -3,6 +3,7 @@ import Koa from 'koa'
 import { db } from '../db/index'
 import { initRoute } from './initRoute'
 import { initAuth } from './initAuth'
+import { initWrap } from './otherMiddlewares'
 
 
 async function init(app: Koa): Promise<void> {
@@ -18,6 +19,7 @@ async function init(app: Koa): Promise<void> {
   await waitDb()
   // initAuth() returns an middleware
   app.use(initAuth(app))
+  app.use(initWrap())
   initRoute(app)
 }
 

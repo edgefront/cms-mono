@@ -30,8 +30,9 @@ export default class Anything {
       ctx.body = { token, result }
       return next()
     }
-    ctx.response.status = 401
-    ctx.body = 'login failed'
+    ctx.body = {
+      error: 'login failed'
+    }
     return next()
   }
   @Post()
@@ -45,6 +46,7 @@ export default class Anything {
       name,
       ...rest,
     })
-    ctx.body = {name, encryptedPwd, result}
+    const { error } = result; // result is a number or object contains error field
+    ctx.body = {name, encryptedPwd, result, error}
   }
 }
