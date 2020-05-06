@@ -30,9 +30,7 @@ export default class Anything {
       ctx.body = { token, result }
       return next()
     }
-    ctx.body = {
-      error: 'login failed'
-    }
+    ctx.body = 'Error: login failed'
     return next()
   }
   @Post()

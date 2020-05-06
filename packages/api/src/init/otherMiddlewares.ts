@@ -61,9 +61,18 @@ function initWrap(): Middleware {
           }
         }
       } else {
-        ctx.body = {
-          data: ctx.body,
-          code: ctx.response.status
+        // ctx.body is string and contains error:
+        if (String(ctx.body).toLowerCase().startsWith('error:')){
+          ctx.body = {
+            error: String(ctx.body).replace(/error\:/i, '').trim(),
+            code: ctx.response.status === 200 ? 401 : ctx.response.status
+          }
+        } else {
+          // ctx.body is string and no 'error:'
+          ctx.body = {
+            data: ctx.body,
+            code: ctx.response.status
+          }
         }
       }
 
