@@ -1,5 +1,6 @@
 import { SHA256 }  from 'crypto-js';
 import { db } from '@edgefront/api'
+import { inspect } from 'util';
 
 class AuthService {
   table = 'fr_user'
@@ -34,7 +35,13 @@ class AuthService {
       })
     } catch (error) {
       console.log(error);
-      result = null;
+      console.log('==============')
+      console.log(inspect(error));
+      console.log('==============')
+      console.log(error.message);
+      result = {
+        error: error.message
+      };
     }
     return result
   }

@@ -18,7 +18,8 @@ export default class Anything {
   async login(ctx: Koa.Context, next: Next): Promise<void> {
     const { name, password } = ctx.request.body
     const result = await this.auth.login({name, password: this.auth.pwd(password)})
-    if (result) {
+    // if name & password not match, result is empty array.
+    if (result && result.length) {
       const token = ctx.jwt.sign(
         { name },
         util.getConfig('SECRET') || 'edgefront',
