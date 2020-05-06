@@ -1,8 +1,9 @@
 # cms-mono  
 a mono repo for frontpage / cms.  
 
-# project tasks 
-see [teambition](https://teambition.com/project/5e8d517da442870021d042a6)  
+# related links 
+tasks see [teambition](https://teambition.com/project/5e8d517da442870021d042a6)  
+SQL backups see [teambition files](https://www.teambition.com/project/5e8d517da442870021d042a6/works/5ea06dae797124002119f3b2)
 
 # intro of folders  
 |  folder name    | npm name                   | description                  |
