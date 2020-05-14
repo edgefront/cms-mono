@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import logo from './logo.svg';
 import './App.scss';
+import { innerHTML } from './helper'
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
 
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
-        <div className="page-container">
+        <main className="page-container">
           <Switch>
             <Route path="/about">
               <About />
@@ -45,7 +46,8 @@ function App() {
               <Home />
             </Route>
           </Switch>
-        </div>
+        </main>
+        <footer {...innerHTML('&copy; EdgeFront Inc')}></footer>
       </div>
     </div>
   );
