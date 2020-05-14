@@ -1,7 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
 
+## Notes by Daniel Gehuan Liu
 Docs see [facebook/create-react-app v3.4.1](https://github.com/facebook/create-react-app/tree/v3.4.1/docusaurus/docs)  
 [folder-structure](https://github.com/facebook/create-react-app/blob/v3.4.1/docusaurus/docs/folder-structure.md)  
+[folder-structure](https://create-react-app.dev/docs/folder-structure)  
+> other libs (npm package name):  
+[react-router-dom](https://www.npmjs.com/package/react-router-dom/v/5.2.0)  
 
 ## Available Scripts
 
