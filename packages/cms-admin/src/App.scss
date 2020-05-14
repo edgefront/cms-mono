@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+  > .container{
+    > header{
+      img.logo{
+        max-width: 100px;
+      }
+    }
+    > nav{
+
+    }
+    > div.page-container{
+
+    }
+  }
+}
