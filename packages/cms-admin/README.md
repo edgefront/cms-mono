@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
+
+Docs see [facebook/create-react-app v3.4.1](https://github.com/facebook/create-react-app/tree/v3.4.1/docusaurus/docs)  
+[folder-structure](https://github.com/facebook/create-react-app/blob/v3.4.1/docusaurus/docs/folder-structure.md)  
 
 ## Available Scripts
 
