@@ -6,7 +6,8 @@ Docs see [facebook/create-react-app v3.4.1](https://github.com/facebook/create-r
 [folder-structure](https://create-react-app.dev/docs/folder-structure)  
 > other libs (npm package name):  
 [react-router-dom](https://www.npmjs.com/package/react-router-dom/v/5.2.0)  
-[bulma](https://www.npmjs.com/package/bulma/v/0.8.2)
+[bulma](https://www.npmjs.com/package/bulma/v/0.8.2)  
+[@loadable/component](https://www.npmjs.com/package/@loadable/component/v/5.12.0)  
 
 ## Available Scripts
 

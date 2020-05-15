@@ -36,21 +36,20 @@ function Layout(){
       {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}
       <main className="page-container">
-        <Suspense fallback={loading()}>
-          <Switch>
-            {routes.map((route, idx) => {
-              return route.component ? (
-                <Route
-                  key={idx}
-                  path={route.path}
-                  exact={route.exact}
-                  render={props => (
-                    <route.component {...props} />
-                  )} />
-              ) : (null);
-            })}
-          </Switch>
-        </Suspense>
+        <Switch>
+          {/* https://reacttraining.com/react-router/web/example/route-config */}
+          {routes.map((route, idx) => {
+            return route.component ? (
+              <Route
+                key={idx}
+                path={route.path}
+                exact={route.exact}
+                render={props => (
+                  <route.component {...props} />
+                )} />
+            ) : (null);
+          })}
+        </Switch>
       </main>
       <footer {...innerHTML('&copy; EdgeFront Inc')}></footer>
     </div>
