@@ -1,11 +1,14 @@
 import { innerHTML } from '../helper'
-import React from 'react';
+import React, {Suspense} from 'react';
 import {
   Switch,
   Route,
   Link
 } from "react-router-dom";
 import logo from '../logo.svg';
+import routes from '../routes'
+
+const loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
 function Layout(){
   return (
@@ -33,33 +36,25 @@ function Layout(){
       {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}
       <main className="page-container">
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Suspense fallback={loading()}>
+          <Switch>
+            {routes.map((route, idx) => {
+              return route.component ? (
+                <Route
+                  key={idx}
+                  path={route.path}
+                  exact={route.exact}
+                  render={props => (
+                    <route.component {...props} />
+                  )} />
+              ) : (null);
+            })}
+          </Switch>
+        </Suspense>
       </main>
       <footer {...innerHTML('&copy; EdgeFront Inc')}></footer>
     </div>
   )
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export { Layout, Layout as default }
