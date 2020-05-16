@@ -9,7 +9,7 @@ import logo from '../logo.svg';
 import routes from '../routes'
 
 
-function Layout(){
+function AdminLayout(){
   return (
     <div className="container">
       <header className="header">
@@ -55,4 +55,4 @@ function Layout(){
   )
 }
 
-export { Layout, Layout as default }
+export { AdminLayout, AdminLayout as default }
