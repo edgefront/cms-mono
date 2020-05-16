@@ -6,6 +6,7 @@ const AsyncPage = loadable(props => import(`./pages/${props.file}`), {
   fallback: <DefaultLoading></DefaultLoading>
 })
 // https://reacttraining.com/react-router/web/example/route-config
+// https://loadable-components.com/docs/dynamic-import/
 let routes = [
   { path: '/', exact: true, file: 'home' },
   { path: '/about' },
