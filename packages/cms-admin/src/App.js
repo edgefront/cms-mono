@@ -5,15 +5,14 @@ import {
 } from "react-router-dom";
 import AdminLayout from './components/AdminLayout'
 import './scss/index.scss';
-import loadable from '@loadable/component'
-const Login = loadable(() => import('./pages/login'))
+import AsyncPage from './components/AsyncPage'
 
 function App() {
   return (
     <div className="App">
       <Switch>
         <Route exact path="/login">
-          <Login />
+          <AsyncPage file="login" />
         </Route>
         <Route path="/">
           <AdminLayout></AdminLayout>

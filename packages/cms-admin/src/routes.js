@@ -1,10 +1,5 @@
-import React from 'react';
-import loadable from '@loadable/component'
+import AsyncPage from './components/AsyncPage'
 
-const DefaultLoading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
-const AsyncPage = loadable(props => import(`./pages/${props.file}`), {
-  fallback: <DefaultLoading></DefaultLoading>
-})
 // https://reacttraining.com/react-router/web/example/route-config
 // https://loadable-components.com/docs/dynamic-import/
 let routes = [
