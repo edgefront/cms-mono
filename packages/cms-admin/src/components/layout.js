@@ -1,5 +1,5 @@
 import { innerHTML } from '../helper'
-import React, {Suspense} from 'react';
+import React from 'react';
 import {
   Switch,
   Route,
@@ -8,7 +8,6 @@ import {
 import logo from '../logo.svg';
 import routes from '../routes'
 
-const loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
 function Layout(){
   return (
@@ -45,7 +44,7 @@ function Layout(){
                 path={route.path}
                 exact={route.exact}
                 render={props => (
-                  <route.component {...props} />
+                  <route.component file={route.file} {...props} />
                 )} />
             ) : (null);
           })}
