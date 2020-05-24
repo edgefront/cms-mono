@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import AdminLayout from './components/AdminLayout'
+import 'bulma/css/bulma.min.css'
 import './scss/index.scss';
 import AsyncPage from './components/AsyncPage'
 
