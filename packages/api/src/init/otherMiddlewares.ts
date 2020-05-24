@@ -49,7 +49,7 @@ function initWrap(): Middleware {
             // },
             error,
             // if ctx.body contains error field, modify default status code from 200 to 401
-            code: ctx.response.status === 200 ? 401 : ctx.response.status
+            status: ctx.response.status === 200 ? 401 : ctx.response.status
           }
         } else {
           // original ctx.body is json and no error field
@@ -57,7 +57,7 @@ function initWrap(): Middleware {
             data: {
               ...ctx.body
             },
-            code: ctx.response.status
+            status: ctx.response.status
           }
         }
       } else {
@@ -65,13 +65,15 @@ function initWrap(): Middleware {
         if (String(ctx.body).toLowerCase().startsWith('error:')){
           ctx.body = {
             error: String(ctx.body).replace(/error\:/i, '').trim(),
-            code: ctx.response.status === 200 ? 401 : ctx.response.status
+            status: ctx.response.status === 200 ? 401 : ctx.response.status
           }
         } else {
           // ctx.body is string and no 'error:'
+          console.log(ctx.response)
           ctx.body = {
             data: ctx.body,
-            code: ctx.response.status
+            status: ctx.response.status,
+            error: ctx.body === undefined ? ctx.response.message : undefined,
           }
         }
       }
