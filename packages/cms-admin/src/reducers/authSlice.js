@@ -34,6 +34,7 @@ export const logInRequest = user => dispatch => {
   // setTimeout(() => {
   //   dispatch(incrementByAmount(amount));
   // }, 1000);
+  // TODO refactor here, wrap axios or fetch
   fetch('http://localhost:3000/v1/auth/login', {
     method: 'post',
     headers: {
