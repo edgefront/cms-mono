@@ -15,7 +15,8 @@ const tailLayout = {
 };
 
 const Login = () => {
-
+  // see https://github.com/reduxjs/cra-template-redux/tree/v1.0.2/template/src  
+  // and https://github.com/reduxjs/redux-toolkit/tree/v1.3.6/docs
   const auth = useSelector(selectAuth);
   const dispatch = useDispatch();
 
