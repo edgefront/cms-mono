@@ -15,13 +15,17 @@ function initKoa(): Koa {
     console.log(`${ctx.method} ${ctx.url} - ${rt}`)
   })
 
-  // x-response-time
+  // x-response-time & CORS
 
   app.use(async (ctx, next) => {
     const start = Date.now()
     await next()
     const ms = Date.now() - start
     ctx.set('X-Response-Time', `${ms}ms`)
+    ctx.set('Access-Control-Allow-Origin', '*')
+    // TODO only add below header for OPTIONS medthod
+    // TODO right another middleware for CORS
+    ctx.set('Access-Control-Allow-Headers', '*')
   })
   return app
 }

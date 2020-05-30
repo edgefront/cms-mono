@@ -4,6 +4,7 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState: {
     logged: 0,
+    username: null,
   },
   reducers: {
     logIn: (state, action)=> {
@@ -12,10 +13,11 @@ export const authSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       state.logged = 1;
-      state.userName = action.payload.username;
+      state.username = action.payload.username;
     },
     logOut: state => {
       state.logged = 0;
+      state.username = null
     },
   },
 });
@@ -30,14 +32,28 @@ export const logInRequest = user => dispatch => {
   // setTimeout(() => {
   //   dispatch(incrementByAmount(amount));
   // }, 1000);
-  fetch('').then(res => {
-    dispatch(logIn(user))
+  fetch('http://localhost:3000/v1/auth/login', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: user.username,
+      password: user.password
+    })
+    }).then(res => res.json()).then(res => {
+      console.log(res)
+      if (res.data) {
+        dispatch(logIn(user))
+      } else {
+        console.log('login error')
+      }
   })
 };
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
-export const selectLogged = state => state.auth.logged;
+export const selectAuth = state => state.auth;
 
 export default authSlice.reducer;

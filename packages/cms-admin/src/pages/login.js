@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  logInRequest,
+  selectAuth,
+} from '../reducers/authSlice';
 import { Form, Input, Button, Checkbox } from 'antd';
 
 const layout = {
@@ -10,9 +15,15 @@ const tailLayout = {
 };
 
 const Login = () => {
+
+  const auth = useSelector(selectAuth);
+  const dispatch = useDispatch();
+
   const onFinish = values => {
     console.log('Success:', values);
+    dispatch(logInRequest(values))
   };
+  const str = (obj) => JSON.stringify(obj)
 
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
@@ -51,6 +62,7 @@ const Login = () => {
           Submit
         </Button>
       </Form.Item>
+      <div>{str( auth )}</div>
     </Form>
   );
 };
