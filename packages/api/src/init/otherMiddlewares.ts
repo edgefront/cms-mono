@@ -69,11 +69,16 @@ function initWrap(): Middleware {
           }
         } else {
           // ctx.body is string and no 'error:'
-          console.log(ctx.response)
-          ctx.body = {
-            data: ctx.body,
-            status: ctx.response.status,
-            error: ctx.body === undefined ? ctx.response.message : undefined,
+          // CORS preflight OPTIONS will go here
+          if (ctx.request.method === 'OPTIONS') {
+            ctx.body = '';
+          } else {
+            console.log(ctx.response)
+            ctx.body = {
+              data: ctx.body,
+              status: ctx.response.status,
+              error: ctx.body === undefined ? ctx.response.message : undefined,
+            }
           }
         }
       }

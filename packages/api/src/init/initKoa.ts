@@ -24,7 +24,7 @@ function initKoa(): Koa {
     ctx.set('X-Response-Time', `${ms}ms`)
     ctx.set('Access-Control-Allow-Origin', '*')
     // TODO only add below header for OPTIONS medthod
-    // TODO right another middleware for CORS
+    // TODO write another middleware for CORS
     ctx.set('Access-Control-Allow-Headers', '*')
   })
   return app
