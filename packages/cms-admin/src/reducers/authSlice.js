@@ -17,6 +17,7 @@ export const authSlice = createSlice({
       // immutable state based off those changes
       state.logged = 1;
       state.username = action.payload.username;
+      // TODO save token to localStorage
     },
     logOut: state => {
       state.logged = 0;

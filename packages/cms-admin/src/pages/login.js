@@ -22,6 +22,7 @@ const Login = () => {
 
   const onFinish = values => {
     console.log('Success:', values);
+    // TODO save token to localStorage
     dispatch(logInRequest(values))
   };
   const str = (obj) => JSON.stringify(obj)
