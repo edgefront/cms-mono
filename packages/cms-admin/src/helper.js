@@ -6,8 +6,26 @@ const innerHTML = html => {
   };
 };
 
-const helper = {
-  innerHTML
+const baseURL = 'http://localhost:3000/v1/';
+
+function genFetch(method) {
+  return (path, dataObj) => fetch(baseURL + path, {
+    method: String(method).toUpperCase(),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(dataObj)
+  }).then(res => res.json())
 }
 
-export { innerHTML, helper, helper as default }
+const http = {
+  post: genFetch('post'),
+  POST: genFetch('post'),
+}
+
+const helper = {
+  innerHTML,
+  http
+}
+
+export { innerHTML, http, helper, helper as default }

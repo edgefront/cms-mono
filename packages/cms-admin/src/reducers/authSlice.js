@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { http } from '../helper'
 
 // see https://github.com/reduxjs/cra-template-redux/tree/v1.0.2/template/src  
 // and https://github.com/reduxjs/redux-toolkit/tree/v1.3.6/docs
@@ -35,16 +36,10 @@ export const logInRequest = user => dispatch => {
   //   dispatch(incrementByAmount(amount));
   // }, 1000);
   // TODO refactor here, wrap axios or fetch
-  fetch('http://localhost:3000/v1/auth/login', {
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
+  http.post('auth/login', {
       name: user.username,
       password: user.password
-    })
-    }).then(res => res.json()).then(res => {
+    }).then(res => {
       console.log(res)
       if (res.data) {
         dispatch(logIn(user))
