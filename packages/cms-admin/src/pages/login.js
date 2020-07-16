@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  logInRequest,
+  selectAuth,
+} from '../reducers/authSlice';
 import { Form, Input, Button, Checkbox } from 'antd';
 
 const layout = {
@@ -10,9 +15,16 @@ const tailLayout = {
 };
 
 const Login = () => {
+  // see https://github.com/reduxjs/cra-template-redux/tree/v1.0.2/template/src  
+  // and https://github.com/reduxjs/redux-toolkit/tree/v1.3.6/docs
+  const auth = useSelector(selectAuth);
+  const dispatch = useDispatch();
+
   const onFinish = values => {
     console.log('Success:', values);
+    dispatch(logInRequest(values))
   };
+  const str = (obj) => JSON.stringify(obj)
 
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
@@ -51,6 +63,7 @@ const Login = () => {
           Submit
         </Button>
       </Form.Item>
+      <div>{str( auth )}</div>
     </Form>
   );
 };
