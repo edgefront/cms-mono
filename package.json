@@ -6,11 +6,11 @@
   "scripts": {
     "bootstrap": "npx lerna bootstrap",
     "build:api": "npx lerna run --scope @edgefront/api build --stream",
-    "run:cms-api": "npx lerna run --scope cms-api n --stream",
-    "run:cms-admin": "cd packages/cms-admin && npm start",
-    "start:cms-api": "npm run bootstrap && npm run build:api && npm run build:cms-api && npx lerna run --scope cms-api start --stream",
     "build:cms-api": "npx lerna run --scope cms-api build --stream",
-    "start": "npm run bootstrap && npm run build:api && npm run run:cms-api",
+    "run:cms-api": "npm run bootstrap && npm run build:api && npx lerna run --scope cms-api n --stream",
+    "run:cms-admin": "npx lerna run --parallel --stream --scope cms-admin start",
+    "start:prod:cms-api": "npm run bootstrap && npm run build:api && npm run build:cms-api && npx lerna run --scope cms-api start --stream",
+    "start": "npm run run:cms-admin & npm run run:cms-api",
     "postinstall": "npm run bootstrap"
   },
   "author": "",
